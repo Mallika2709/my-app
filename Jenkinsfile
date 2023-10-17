@@ -15,13 +15,13 @@ node{
 	        }
 	   }
    stage('Build Docker Image'){
-   sh 'docker build -t pavancse530/myweb:0.0.5 .'
+   sh 'docker build -t mallika279/myweb:0.0.5 .'
    }
    stage('Docker Image Push'){
    withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
-   sh "docker login -u pavancse530 -p ${dockerPassword}"
+   sh "docker login -u mallika279 -p ${dockerPassword}"
     }
-   sh 'docker push pavancse530/myweb:0.0.5'
+   sh 'docker push mallika279/myweb:0.0.5'
    }
    stage('Nexus Image Push'){
    sh "docker login -u admin -p admin123 3.111.29.114:8083"
